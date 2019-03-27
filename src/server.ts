@@ -12,6 +12,8 @@ const downloadURLfromRedirected = (url: string) => {
   }.watch`
 }
 
+const PORT = process.env.PORT || 3000
+
 const router = new Router()
 
 router.get('/', async ctx => {
@@ -61,6 +63,6 @@ app.use(Views(__dirname + '/views', { extension: 'pug' }))
 app.use(Static(__dirname + '/static'))
 app.use(router.routes())
 
-app.listen(3000, () => {
-  console.log('Server listening on port 3000')
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`)
 })
